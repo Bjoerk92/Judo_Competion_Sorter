@@ -2,10 +2,13 @@
 
 """
 import argparse
-
+import CSV_Reader
 
 def main(args : argparse.Namespace):
-    pass
+    
+    CSV = CSV_Reader.CSV(args.f, args.D)
+    
+    
 
 
 
@@ -19,7 +22,7 @@ if __name__ == "__main__":
     
     parser.add_argument('-filename', '--f', type=str, required=True)
     parser.add_argument('-Output', '--O', type=str, required=False)
-
+    parser.add_argument('-Delimiter', '--D', type=str, required=False, default=";")
     args : argparse.Namespace = parser.parse_args()
 
     main(args)
